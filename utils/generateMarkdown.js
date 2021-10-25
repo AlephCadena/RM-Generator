@@ -1,19 +1,7 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-
-
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-
-
-// TODO: Create a function to generate markdown for README
-
 function generateMarkdown(data) {
   let license = "## License";
   let licenseBadge = "";
-  let contribution =
-      "[Contributor Covenant](https://www.contributor-covenant.org/)";
-      // switch statement to catch what type of license
+  
   switch (data.license) {
       case "None":
           license = "";
@@ -71,10 +59,8 @@ function generateMarkdown(data) {
               "[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)";
           break;
   }
-  if (data.contribution != "") {
-      contribution = data.contribution;
-  }
 
+  
   return `
 # ${data.title}
 ${license}
@@ -83,7 +69,6 @@ ${licenseBadge}
 * [Description](#Description)
 * [Installation](#Installation)
 * [Usage](#Usage)
-* [Contribution](#Contribution)
 * [Testing](#Testing)
 * [Notes](#Notes)
 ## Description
@@ -93,13 +78,11 @@ ${data.description}
 npm i ${data.installation}
 \`\`\`
 ## Usage 
-[${data.usageAlt}](${data.usageDemo})
-## Contribution
-${contribution}
+[${data.usageAlt}]
 ## Testing
 ${data.test}
 ## Notes
-If you have any questions or concerns, feel free to reach out to me at ${data.email}. You can also reach out to me @${data.githubUsername} on github.
+If there are any questions or concerns to discuss, please reach out at ${data.email}, or through GitHub @${data.githubUsername}.
 `;
 }
 

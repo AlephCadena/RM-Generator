@@ -1,15 +1,16 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const generateMd = require("./utils/generateMarkdown.js");
+
 const questions = [
     {
         type: "input",
-        message: "What is the title of your project?",
+        message: "What is your project called?",
         name: "title",
     },
     {
         type: "input",
-        message: "Please give a short description of your project.",
+        message: "Provide a short description of your project.",
         name: "description",
     },
     {
@@ -19,18 +20,8 @@ const questions = [
     },
     {
         type: "input",
-        message: "What is the path or link to a demonstration of your project?",
+        message: "Where can a demonstration of your project be viewed?",
         name: "usageDemo",
-    },
-    {
-        type:"input",
-        message:'Please enter a short description of the demonstration of your project.',
-        name: "usageAlt"
-    },
-    {
-        type: "input",
-        message: "What contribution guidelines would you like to set? Please note the default is the 'Contributor Convenant'.",
-        name: "contribution",
     },
     {
         type: "input",
@@ -39,12 +30,12 @@ const questions = [
     },
     {
         type: "input",
-        message: "What is your github username?",
+        message: "Please provide your Github username.",
         name: "githubUsername",
     },
     {
         type: "input",
-        message: "What is your email address?",
+        message: "Please provide your email address.",
         name: "email",
     },
     {
