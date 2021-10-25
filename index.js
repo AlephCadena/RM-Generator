@@ -2,7 +2,7 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const generateMd = require("./utils/generateMarkdown.js");
 
-const questions = [
+const projectQuestions = [
     {
         type: "input",
         message: "What is your project called?",
@@ -22,6 +22,16 @@ const questions = [
         type: "input",
         message: "Where can a demonstration of your project be viewed?",
         name: "usageDemo",
+    },
+    {
+        type:"input",
+        message:'Please give a short description of the project demo.',
+        name: "usageAlt"
+    },
+    {
+        type: "input",
+        message: "What contribution guidelines would you like to set? Please note the default is the 'Contributor Convenant'.",
+        name: "contribution",
     },
     {
         type: "input",
@@ -62,7 +72,7 @@ const questions = [
 ];
 
 function init() {
-    inquirer.prompt(questions).then((response) => {
+    inquirer.prompt(projectQuestions).then((response) => {
         fs.writeFile('README.md', generateMd(response), (err) => {
             if (err) {
                 console.error(err);

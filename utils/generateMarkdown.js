@@ -1,7 +1,9 @@
 function generateMarkdown(data) {
   let license = "## License";
   let licenseBadge = "";
-  
+  let contribution =
+      "[Contributor Covenant](https://www.contributor-covenant.org/)";
+
   switch (data.license) {
       case "None":
           license = "";
@@ -59,26 +61,31 @@ function generateMarkdown(data) {
               "[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)";
           break;
   }
+  if (data.contribution != "") {
+      contribution = data.contribution;
+  }
 
-  
   return `
 # ${data.title}
 ${license}
 ${licenseBadge}
-## Table of Contents
+# Table of Contents
 * [Description](#Description)
 * [Installation](#Installation)
 * [Usage](#Usage)
+* [Contribution](#Contribution)
 * [Testing](#Testing)
 * [Notes](#Notes)
-## Description
+# Description
 ${data.description}
 ## Installation
 \`\`\` 
 npm i ${data.installation}
 \`\`\`
-## Usage 
+## Demo 
 [${data.usageAlt}]
+## Contribution
+${contribution}
 ## Testing
 ${data.test}
 ## Notes
